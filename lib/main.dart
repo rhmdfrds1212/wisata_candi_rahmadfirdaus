@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Wisata Candi',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
@@ -71,30 +72,32 @@ class _MainScreenState extends State<MainScreen> {
         ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
-          onTap: _onItemTapped,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home, color: Colors.deepPurple,),
               label: 'Home',
-              backgroundColor: Colors.deepPurple,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.search, color: Colors.deepPurple,),
               label: 'Search',
-              backgroundColor: Colors.deepPurple,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
+              icon: Icon(Icons.favorite, color: Colors.deepPurple,),
               label: 'Favorite',
-              backgroundColor: Colors.deepPurple,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person, color: Colors.deepPurple,),
               label: 'Profile',
-              backgroundColor: Colors.deepPurple,
             ),
           ],
-
+          selectedItemColor: Colors.deepPurple,
+          unselectedItemColor: Colors.deepPurple[100],
+          showUnselectedLabels: true,
         ),
       ),
     );
