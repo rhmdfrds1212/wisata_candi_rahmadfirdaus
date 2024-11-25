@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_candi/navigation/second_screen.dart';
 import 'package:wisata_candi/screens/favorite_screen.dart';
 import 'package:wisata_candi/screens/search_screen.dart';
 import 'package:wisata_candi/screens/sign_in_screen.dart';
@@ -38,6 +39,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: SignUpScreen(),
+      initialRoute: '/',
+      routes: {
+        '/homescreen': (context) => const HomeScreen(),
+        '/signin': (context) =>  const SignInScreen(),
+        '/signup': (context) => const SignUpScreen(),
+
+      },
     );
   }
 }
